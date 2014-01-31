@@ -48,4 +48,4 @@ filetype plugin on     " required!
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.jbuilder set ft=ruby
 let g:vim_markdown_folding_disabled=1
-set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=list,full
+set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=longest,list
