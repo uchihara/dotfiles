@@ -1,0 +1,52 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: sc2-api-server
+project_root: ~/sc2-api-server
+#socket_name: foo # Not needed.  Remove to use default socket
+pre_tab: ruby-2.0.0-p247
+#pre: sudo /etc/rc.d/mysqld start
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - #empty, will just run plain bash
+        - 
+  - server:
+      layout: even-vertical
+      panes:
+        -
+        - tail -f log/development.log
+  - spork:
+      layout: even-vertical
+      panes:
+        -
+  - wk:
+      layout: even-vertical
+      panes:
+        -
+        -
+  - db:
+      layout: even-vertical
+      panes:
+        - psql -U sc2 -d sc2_development
+        - psql -U sc2 -d sc2_publishers_development
+#  - testbot:
+#      layout: even-vertical
+#      panes:
+#        - CAP_JS_DRIVER=poltergeist SC_TEST_DB_NAME=sc2_testbot testbot --runner run --connect ci.tab.do --user ubuntu --working_dir /tmp/testbot-ameyoko --cpus 1
+  - req:
+      layout: even-vertical
+      panes:
+        - vi ~/bin/req-sc2-api.sh
+        -
+#  - cp:
+#      layout: even-vertical
+#      panes:
+#        - cd ../sc2-contents-crawler
+#        - cd ../sc2-contents-crawler
+#  - cps:
+#      layout: even-vertical
+#      panes:
+#        - cd ../sc2-contents-crawler
+#        - cd ../sc2-contents-crawler && tail -f log/development.log
