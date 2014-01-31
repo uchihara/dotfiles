@@ -32,7 +32,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 WORDCHARS=${WORDCHARS:s,/,,}
 
-alias ls='ls -FCG'
+alias ls='ls -FCG --color=auto'
 alias java='java -Dfile.encoding=UTF-8'
 alias javac='javac -encoding UTF-8 -J-Dfile.encoding=UTF-8'
 alias s3cmd='s3cmd --encoding=UTF-8'
