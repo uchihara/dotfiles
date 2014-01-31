@@ -1,0 +1,10 @@
+[user]
+	name = Akira Uchihara
+	email = uchihara@tonchidot.com
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	ci = commit
+[color]
+	ui = auto
