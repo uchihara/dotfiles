@@ -32,6 +32,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 WORDCHARS=${WORDCHARS:s,/,,}
 
+alias vi=vim
 alias ls='ls -FCG --color=auto'
 alias java='java -Dfile.encoding=UTF-8'
 alias javac='javac -encoding UTF-8 -J-Dfile.encoding=UTF-8'
