@@ -32,8 +32,12 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 WORDCHARS=${WORDCHARS:s,/,,}
 
-alias vi=vim
-alias ls='ls -FCG --color=auto'
+command -v vim >/dev/null || alias vi=vim
+if ls --color >/dev/null 2>&1; then
+  alias ls='ls -FC --color=auto'
+else
+  alias ls='ls -FCG'
+fi
 alias java='java -Dfile.encoding=UTF-8'
 alias javac='javac -encoding UTF-8 -J-Dfile.encoding=UTF-8'
 alias s3cmd='s3cmd --encoding=UTF-8'
@@ -116,21 +120,17 @@ LESS=-R; export LESS
 if [ -d /usr/lib/jvm/default-java ]; then
 	JAVA_HOME=/usr/lib/jvm/default-java; export JAVA_HOME
 	EC2_HOME=/usr/local/ec2-api-tools-1.3-62308; export EC2_HOME
-	EC2_PRIVATE_KEY=~/Documents/pk-PQWSL3XGN5XN6M2EWMXWRTQH5IHEFGOW.pem; export EC2_PRIVATE_KEY
-	EC2_CERT=~/Documents/cert-PQWSL3XGN5XN6M2EWMXWRTQH5IHEFGOW.pem; export EC2_CERT
+	EC2_PRIVATE_KEY=~/Documents/pk-*.pem; export EC2_PRIVATE_KEY
+	EC2_CERT=~/Documents/cert-*.pem; export EC2_CERT
 fi
 
 if [ `uname` = Darwin ]; then
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
-#export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
-#export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
 
-#JAVA_HOME=/Library/Java/Home; export JAVA_HOME
-#EC2_HOME=/usr/local/ec2-api-tools-1.5.0.1-2011.11.30; export EC2_HOME
-EC2_PRIVATE_KEY=~/Documents/pk-PQWSL3XGN5XN6M2EWMXWRTQH5IHEFGOW.pem; export EC2_PRIVATE_KEY
-EC2_CERT=~/Documents/cert-PQWSL3XGN5XN6M2EWMXWRTQH5IHEFGOW.pem; export EC2_CERT
 AWS_ELB_HOME=/usr/local/ElasticLoadBalancing-1.0.10.0; export AWS_ELB_HOME
 AWS_IAM_HOME=/usr/local/IAMCli-1.4.0; export AWS_IAM_HOME
 fi
