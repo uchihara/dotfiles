@@ -11,6 +11,7 @@
 	co = checkout
 	st = status
 	br = branch
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [merge]
 	tool = vimdiff
 [core]
@@ -19,5 +20,6 @@
 #[mergetool "vimdiff"]
 #	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
 #	trustExitCode = true
-#[diff]
+[diff]
+  algorithm = histogram
 #  external = p4diff
