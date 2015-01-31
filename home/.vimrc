@@ -24,6 +24,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'elzr/vim-json'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'szw/vim-tags'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
@@ -49,6 +50,8 @@ filetype plugin on     " required!
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.jbuilder set ft=ruby
 let g:vim_markdown_folding_disabled=1
+let g:vim_tags_auto_generate = 1
+
 set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=longest,list
 
 autocmd QuickFixCmdPost *grep* cwindow
