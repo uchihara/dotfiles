@@ -50,3 +50,5 @@ filetype plugin on     " required!
 au BufNewFile,BufRead *.jbuilder set ft=ruby
 let g:vim_markdown_folding_disabled=1
 set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=longest,list
+
+autocmd QuickFixCmdPost *grep* cwindow
