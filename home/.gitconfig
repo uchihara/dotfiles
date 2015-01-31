@@ -1,10 +1,23 @@
 [user]
 	name = Akira Uchihara
 	email = uchihara@tonchidot.com
+[color]
+#	diff = auto
+	diff = always
+	status = auto
+	branch = auto
 [alias]
+	ci = commit
+	co = checkout
 	st = status
 	br = branch
-	co = checkout
-	ci = commit
-[color]
-	ui = auto
+[merge]
+	tool = vimdiff
+[core]
+# 	pager = less -R
+# 	pager = sh l.sh
+#[mergetool "vimdiff"]
+#	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
+#	trustExitCode = true
+#[diff]
+#  external = p4diff
