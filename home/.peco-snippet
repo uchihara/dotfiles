@@ -1,0 +1,6 @@
+alias -g P='|peco'
+alias -g git-br='$(git branch P)'
+alias -g git-brr='$(git branch -r P)'
+alias -g git-loa='$(git log --no-color --pretty=oneline --abbrev-commit P | awk "{print \$1}")'
+alias pushd-gem='pushd $(bundle show --paths P)'
+alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
