@@ -1,0 +1,4 @@
+home/.aws/config
+home/.s3cfg*
+home/.ec2
+*.swp

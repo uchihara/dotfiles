@@ -7,6 +7,7 @@ compinit
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
+source /usr/local/share/zsh/site-functions/_aws
 bindkey -e
 precmd () {
     psvar=()
@@ -38,6 +39,7 @@ if ls --color >/dev/null 2>&1; then
 else
   alias ls='ls -FCG'
 fi
+
 alias java='java -Dfile.encoding=UTF-8'
 alias javac='javac -encoding UTF-8 -J-Dfile.encoding=UTF-8'
 alias s3cmd='s3cmd --encoding=UTF-8'
@@ -59,6 +61,9 @@ alias rake='bundle exec rake'
 alias unicorn_rails='bundle exec unicorn_rails'
 #alias god='bundle exec god'
 alias clear2="echo -e '\026\033c'"
+alias multitail='multitail -T -cT ansi -m 1000'
+alias be='bundle exec'
+alias -g PC='| pbcopy'
 
 if [ -f ~/.ssh-agent-info ]; then
 	source ~/.ssh-agent-info
@@ -94,6 +99,13 @@ function cleanup-git-branches() {
   done
 }
 
+function git-hash(){
+  branch=${1-HEAD}
+  git log --no-color --oneline --branches $branch | peco | awk '{print $1}'
+}
+
+alias -g GH='$(git-hash)'
+
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
 LIBRARY_PATH=/usrlocal/lib:/usr/lib; export LIBRARY_PATH
@@ -105,7 +117,8 @@ if [ -x /usr/bin/ccache ]; then
 fi
 
 GOROOT=~/go; export GOROOT
-PATH=$PATH:~/go/bin; export PATH
+GOPATH=~/.go/1.3; export GOPATH
+PATH=$PATH:$GOPATH/bin; export PATH
 
 PATH=$PATH:~/Library/Developer/android-sdk/tools; export PATH
 PATH=$PATH:~/Library/Developer/android-sdk/platform-tools; export PATH
@@ -136,7 +149,7 @@ AWS_IAM_HOME=/usr/local/IAMCli-1.4.0; export AWS_IAM_HOME
 fi
 
 PATH=$PATH:$EC2_HOME/bin:$AWS_ELB_HOME/bin:$AWS_IAM_HOME/bin; export PATH
-AWS_CREDENTIAL_FILE=~/.aws-cred; export AWS_CREDENTIAL_FILE
+[[ -f ~/.aws-cred ]] && source ~/.aws-cred
 function ec2() {
 	if [ $# -ne 1 ]; then
 		echo "usage: ec2 <keyword>"
@@ -152,6 +165,7 @@ PATH=~/bin:$PATH
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm && rvm use default >/dev/null
 [[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+[[ -s ~/.peco-snippet ]] && source ~/.peco-snippet
 
 #export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_GC_MALLOC_LIMIT=600000000

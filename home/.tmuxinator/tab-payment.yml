@@ -1,8 +1,8 @@
-# ~/.tmuxinator/sc2-api-server.yml
+# ~/.tmuxinator/tab-payment.yml
 # you can make as many tabs as you wish...
 
-project_name: sc2-api-server
-project_root: ~/src/sc2-api-server
+project_name: tab-payment
+project_root: ~/src/tab-payment
 #socket_name: foo # Not needed.  Remove to use default socket
 #pre_window: rvm use ruby-2.0.0-p247
 #pre: sudo /etc/rc.d/mysqld start
@@ -29,18 +29,17 @@ windows:
   - db:
       layout: even-vertical
       panes:
-        -
-        -
-  - req:
-      layout: even-vertical
-      panes:
-        - echo vi ~/bin/req-sc2-api.sh
-        -
-  - tab-commons:
-      layout: even-vertial
-      panes:
-        - cd ~/src/tab-commons
-        - cd ~/src/tab-commons
+        - mysql -u rails -p payment_development
+        - 
+#  - testbot:
+#      layout: even-vertical
+#      panes:
+#        - CAP_JS_DRIVER=poltergeist SC_TEST_DB_NAME=sc2_testbot testbot --runner run --connect ci.tab.do --user ubuntu --working_dir /tmp/testbot-ameyoko --cpus 1
+#  - req:
+#      layout: even-vertical
+#      panes:
+#        - echo vi ~/bin/req-sc2-api.sh
+#        -
 #  - cp:
 #      layout: even-vertical
 #      panes:

@@ -20,6 +20,11 @@
 #[mergetool "vimdiff"]
 #	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
 #	trustExitCode = true
+  quotepath = false
 [diff]
   algorithm = histogram
 #  external = p4diff
+#driver for merging XCode project files
+[merge "mergepbx"]
+  name = XCode project files merger
+  driver = mergepbx %O %A %B
