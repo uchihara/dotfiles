@@ -1,0 +1,51 @@
+# ~/.tmuxinator/testbot-runners.yml
+# you can make as many tabs as you wish...
+
+project_name: testbot
+project_root: ~/
+windows:
+  - nobunaga:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@nobunaga.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@nobunaga.local
+  - hideyoshi:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@hideyoshi.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@hideyoshi.local
+  - namihei:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@namihei.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@namihei.local
+  - shishimaru:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@shishimaru.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@shishimaru.local
+  - ebizo:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@ebizo.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@ebizo.local
+  - sarutobi:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@sarutobi.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@sarutobi.local
+  - chikuwa:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@chikuwa.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@chikuwa.local
+  - takuwan:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@takuwan.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@takuwan.local
+  - soramame:
+      layout: even-vertical
+      panes:
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@soramame.local
+        - ssh -i ~/.ssh/testbot-runners-id_rsa -p 2222 vagrant@soramame.local
