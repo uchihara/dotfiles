@@ -34,6 +34,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'vim-scripts/diffchar.vim'
 Bundle 'szw/vim-tags'
+Bundle 'markcornick/vim-terraform'
+
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
