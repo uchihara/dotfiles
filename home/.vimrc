@@ -92,4 +92,8 @@ nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
 nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+nnoremap <Leader>q" ciw""<Esc>Pb
+nnoremap <Leader>q' ciw''<Esc>Pb
+nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>Pb
+
 nnoremap <C-]> g<C-]>
