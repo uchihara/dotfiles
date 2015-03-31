@@ -33,7 +33,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 WORDCHARS=${WORDCHARS:s,/,,}
 
-command -v vim >/dev/null || alias vi=vim
+command -v vim >/dev/null && alias vi=vim
 if ls --color >/dev/null 2>&1; then
   alias ls='ls -FC --color=auto'
 else
