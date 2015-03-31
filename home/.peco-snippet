@@ -4,3 +4,50 @@ alias -g git-brr='$(git branch -r P)'
 alias -g git-loa='$(git log --no-color --pretty=oneline --abbrev-commit P | awk "{print \$1}")'
 alias pushd-gem='pushd $(bundle show --paths P)'
 alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+
+bindkey '^r' peco-select-history
+
+function peco-select-git-add() {
+    local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
+                                  peco --query "$LBUFFER" | \
+                                  awk -F ' ' '{print $NF}')"
+    if [ -n "$SELECTED_FILE_TO_ADD" ]; then
+      BUFFER="git add $(echo "$SELECTED_FILE_TO_ADD" | tr '\n' ' ')"
+      CURSOR=$#BUFFER
+    fi
+    zle accept-line
+    # zle clear-screen
+}
+zle -N peco-select-git-add
+
+bindkey "^g^a" peco-select-git-add
+
+function peco-git-recent-branches () {
+    local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+        perl -pne 's{^refs/heads/}{}' | \
+        peco)
+    if [ -n "$selected_branch" ]; then
+        BUFFER="git checkout ${selected_branch}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-git-recent-branches
+
+bindkey "^g^b" peco-git-recent-branches
+
