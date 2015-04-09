@@ -4,6 +4,7 @@ alias -g git-brr='$(git branch -r P)'
 alias -g git-loa='$(git log --no-color --pretty=oneline --abbrev-commit P | awk "{print \$1}")'
 alias pushd-gem='pushd $(bundle show --paths P)'
 alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
+alias git-rebase-loa 'git rebase -i git-loa'
 
 function peco-select-history() {
     local tac
@@ -15,7 +16,7 @@ function peco-select-history() {
     BUFFER=$(history -n 1 | \
         eval $tac | \
         awk '!_[$0]++' | \
-        peco --query "$LBUFFER")
+        peco --no-ignore-case --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
