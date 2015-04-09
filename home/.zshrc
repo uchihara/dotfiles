@@ -128,11 +128,9 @@ PATH=$PATH:$ANDROIDNDK_HOME; export PATH
 EDITOR=vim; export EDITOR
 LESS=-R; export LESS
 
-
 # for amazon ec2
 if [ -d /usr/lib/jvm/default-java ]; then
 	JAVA_HOME=/usr/lib/jvm/default-java; export JAVA_HOME
-	EC2_HOME=/usr/local/ec2-api-tools-1.3-62308; export EC2_HOME
 	EC2_PRIVATE_KEY=~/Documents/pk-*.pem; export EC2_PRIVATE_KEY
 	EC2_CERT=~/Documents/cert-*.pem; export EC2_CERT
 fi
@@ -142,21 +140,9 @@ if [ `uname` = Darwin ]; then
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
 export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
-
-AWS_ELB_HOME=/usr/local/ElasticLoadBalancing-1.0.10.0; export AWS_ELB_HOME
-AWS_IAM_HOME=/usr/local/IAMCli-1.4.0; export AWS_IAM_HOME
 fi
 
-PATH=$PATH:$EC2_HOME/bin:$AWS_ELB_HOME/bin:$AWS_IAM_HOME/bin; export PATH
 [[ -f ~/.aws-cred ]] && source ~/.aws-cred
-function ec2() {
-	if [ $# -ne 1 ]; then
-		echo "usage: ec2 <keyword>"
-		return
-	fi
-	ls -1 $EC2_HOME/bin | egrep -v '\.cmd$' G $1
-}
 
 #
 PATH=~/bin:$PATH
