@@ -148,7 +148,6 @@ fi
 PATH=~/bin:$PATH
 
 # Load RVM into a shell session *as a function*
-[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm && rvm use default >/dev/null
 [[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s ~/.peco-snippet ]] && source ~/.peco-snippet
@@ -159,5 +158,6 @@ export RUBY_HEAP_MIN_SLOTS=1000000
 #export RUBY_FREE_MIN=2000000
 export RUBY_FREE_MIN=1000000
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/share/npm/bin
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
