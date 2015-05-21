@@ -38,6 +38,8 @@ Bundle 'tsukkee/unite-tag'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplete'
 Bundle 'markcornick/vim-terraform'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'rking/ag.vim'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
