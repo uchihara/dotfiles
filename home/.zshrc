@@ -110,9 +110,9 @@ if [ -x /usr/bin/ccache ]; then
 	CXX='/usr/bin/ccache g++'; export CXX
 fi
 
-GOROOT=~/go; export GOROOT
-GOPATH=~/.go/1.3; export GOPATH
-PATH=$PATH:$GOPATH/bin; export PATH
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 PATH=$PATH:~/Library/Developer/android-sdk/tools; export PATH
 PATH=$PATH:~/Library/Developer/android-sdk/platform-tools; export PATH
