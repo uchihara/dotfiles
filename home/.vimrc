@@ -17,6 +17,7 @@ Bundle 'vim-ruby/vim-ruby'
 "Bundle 'vim-scripts/ruby-matchit'
 Bundle 'tpope/vim-endwise'
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-cucumber'
 Bundle 'jlanzarotta/bufexplorer'
@@ -104,3 +105,24 @@ nnoremap <Leader>q' ciw''<Esc>Pb
 nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>Pb
 
 nnoremap <C-]> g<C-]>
+
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerSplitOutPathName=0
+
+noremap [unite] <Nop>
+nmap <Space>u [unite]
+
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> [unite]rg :<C-u>UniteResume search-buffer<CR>
+
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
