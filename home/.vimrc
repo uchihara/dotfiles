@@ -69,6 +69,8 @@ let g:vim_markdown_folding_disabled=1
 
 "set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=longest,list
 set expandtab tabstop=2 shiftwidth=2 wildmode=longest,list
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c(0x%02B)%8P
+set laststatus=2
 
 autocmd QuickFixCmdPost *grep* cwindow
 colorscheme default
