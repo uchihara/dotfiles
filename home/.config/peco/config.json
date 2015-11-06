@@ -1,0 +1,10 @@
+{
+  "SingleKeyJump": {
+    "ShowPrefix": true
+  },
+  "Keymap": {
+    "@": "peco.ToggleSingleKeyJump",
+    "C-c": "peco.Cancel",
+    "C-g": "peco.Cancel"
+  }
+}
