@@ -146,11 +146,9 @@ PATH=~/bin:$PATH
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 [[ -s ~/.peco-snippet ]] && source ~/.peco-snippet
 
-#export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_GC_MALLOC_LIMIT=600000000
-export RUBY_HEAP_MIN_SLOTS=1000000
-#export RUBY_FREE_MIN=2000000
-export RUBY_FREE_MIN=1000000
+export RUBY_GC_HEAP_FREE_SLOTS=40960
+export RUBY_GC_HEAP_INIT_SLOTS=100000
 
 PATH=$PATH:/usr/local/share/npm/bin
 
