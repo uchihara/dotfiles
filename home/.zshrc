@@ -26,6 +26,7 @@ setopt hist_ignore_dups
 setopt share_history
 setopt magic_equal_subst
 setopt nonomatch
+setopt extended_glob
 
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' format '%B%d%b'
