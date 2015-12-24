@@ -122,7 +122,7 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]n :<C-u>Unite file/new<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> [unite]rg :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
 vnoremap /g y:Unite grep:.::<C-R>=escape(@", '\\\?.*$^[]')<CR><CR>
 
 if executable('ag')
