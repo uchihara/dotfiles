@@ -159,4 +159,5 @@ export RUBY_GC_HEAP_INIT_SLOTS=100000
 
 PATH=$PATH:/usr/local/share/npm/bin
 
+PATH=$PATH:~/.rbenv/bin
 eval "$(rbenv init -)"
