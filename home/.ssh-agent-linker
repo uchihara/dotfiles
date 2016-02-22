@@ -1,0 +1,9 @@
+ssh_agent_sock=$HOME/.ssh-agent-sock
+if [ -S "$SSH_AUTH_SOCK" ]; then
+    case $SSH_AUTH_SOCK in
+        /tmp/*/agent.[0-9]*)
+            ln -snf $SSH_AUTH_SOCK $ssh_agent_sock && export SSH_AUTH_SOCK=$ssh_agent_sock
+    esac
+elif [ -S "$ssh_agent_sock" ]; then
+    export SSH_AUTH_SOCK=$ssh_agent_sock
+fi

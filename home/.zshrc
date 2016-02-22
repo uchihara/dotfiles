@@ -161,3 +161,5 @@ PATH=$PATH:/usr/local/share/npm/bin
 
 PATH=$PATH:~/.rbenv/bin
 eval "$(rbenv init -)"
+
+[ -f ~/.ssh-agent-linker ] && source ~/.ssh-agent-linker
