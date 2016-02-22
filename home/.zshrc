@@ -7,7 +7,7 @@ compinit
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '[%b]'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
-source /usr/local/share/zsh/site-functions/_aws
+[ -f /usr/local/share/zsh/site-functions/_aws ] && source /usr/local/share/zsh/site-functions/_aws
 bindkey -e
 precmd () {
     psvar=()
