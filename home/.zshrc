@@ -34,6 +34,12 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 WORDCHARS=${WORDCHARS:s,/,,}
 
+if [ -d ~/.zsh.d ]; then
+  for f in ~/.zsh.d/*/*.zsh; do
+    source $f
+  done
+fi
+
 command -v vim >/dev/null && alias vi=vim
 if ls --color >/dev/null 2>&1; then
   alias ls='ls -FC --color=auto'
