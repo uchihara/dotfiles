@@ -115,6 +115,7 @@ nmap <Space>u [unite]
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
+let g:unite_enable_start_insert = 1
 
 nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file<CR>
