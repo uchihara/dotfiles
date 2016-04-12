@@ -42,6 +42,7 @@ Bundle 'markcornick/vim-terraform'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'Shougo/neomru.vim'
+Bundle 'tmsanrinsha/yaml.vim'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
