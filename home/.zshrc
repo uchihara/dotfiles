@@ -107,6 +107,10 @@ function git-hash(){
 
 alias -g GH='$(git-hash)'
 
+function ud() {
+  echo -n $1 | iconv -f UTF-8 -t UCS-4BE | xxd
+}
+
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
 LIBRARY_PATH=/usrlocal/lib:/usr/lib; export LIBRARY_PATH
