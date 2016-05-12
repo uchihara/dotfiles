@@ -43,6 +43,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'Shougo/neomru.vim'
 Bundle 'tmsanrinsha/yaml.vim'
+Bundle 'scrooloose/syntastic'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -132,3 +133,12 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
