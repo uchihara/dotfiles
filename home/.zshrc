@@ -65,6 +65,7 @@ alias clear2="echo -e '\026\033c'"
 alias multitail='multitail -T -cT ansi -m 1000'
 alias be='bundle exec'
 alias -g PC='| pbcopy'
+alias mux=tmuxinator
 
 if [ -f ~/.ssh-agent-info ]; then
 	source ~/.ssh-agent-info
@@ -107,8 +108,9 @@ function git-hash(){
 
 alias -g GH='$(git-hash)'
 
+alias -g UD='| iconv -f UTF-8 -t UCS-4BE | xxd'
 function ud() {
-  echo -n $1 | iconv -f UTF-8 -t UCS-4BE | xxd
+  echo -n $1 UD
 }
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
