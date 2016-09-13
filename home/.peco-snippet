@@ -19,7 +19,6 @@ function peco-select-history() {
         awk '!_[$0]++' | \
         peco --initial-filter=SmartCase --query "$LBUFFER")
     CURSOR=$#BUFFER
-    zle clear-screen
 }
 zle -N peco-select-history
 
