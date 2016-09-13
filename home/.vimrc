@@ -44,6 +44,9 @@ Bundle 'rking/ag.vim'
 Bundle 'Shougo/neomru.vim'
 Bundle 'tmsanrinsha/yaml.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'mxw/vim-jsx'
+Bundle 'tpope/vim-abolish'
+Bundle 'pangloss/vim-javascript'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -69,6 +72,7 @@ filetype plugin indent on     " required!
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.jbuilder set ft=ruby
+au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 let g:vim_markdown_folding_disabled=1
 
 "set expandtab tabstop=2 shiftwidth=2 noautoindent nosmarttab wildmode=longest,list
