@@ -155,7 +155,6 @@ fi
 PATH=~/bin:$PATH
 
 # Load RVM into a shell session *as a function*
-[[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 which peco >/dev/null && [[ -s ~/.peco-snippet ]] && source ~/.peco-snippet
 
