@@ -168,3 +168,9 @@ PATH=$PATH:~/.rbenv/bin
 eval "$(rbenv init -)"
 
 [ -f ~/.ssh-agent-linker ] && source ~/.ssh-agent-linker
+
+[ -x kubectl ] && source "$(kubectl completion zsh)"
+
+alias kube='kubectl'
+alias kube1='kubectl --kubeconfig=~/src/service_accounts/kubernetes-keys/tab-production/config --cluster=k8s-tab-production.open-runways.com --context=k8s-tab-production.open-runways.com'
+alias kubem='kubectl --cluster=minikube'
