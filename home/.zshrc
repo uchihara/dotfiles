@@ -124,7 +124,7 @@ if [ -x /usr/bin/ccache ]; then
 fi
 
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 PATH=$PATH:~/Library/Developer/android-sdk/tools; export PATH
