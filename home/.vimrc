@@ -47,6 +47,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mxw/vim-jsx'
 Bundle 'tpope/vim-abolish'
 Bundle 'pangloss/vim-javascript'
+Bundle 'nikvdp/ejs-syntax'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -79,6 +80,7 @@ let g:vim_markdown_folding_disabled=1
 set expandtab tabstop=2 shiftwidth=2 wildmode=longest,list
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c(0x%02B)%8P
 set laststatus=2
+set breakindent
 
 autocmd QuickFixCmdPost *grep* cwindow
 colorscheme default
