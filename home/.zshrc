@@ -144,9 +144,11 @@ fi
 
 if [ `uname` = Darwin ]; then
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
-export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+  if [ -x java ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+  fi
+  export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem 2>/dev/null)"
+  export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem 2>/dev/null)"
 fi
 
 [[ -f ~/.aws-cred ]] && source ~/.aws-cred
