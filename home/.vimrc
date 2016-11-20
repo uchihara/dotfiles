@@ -44,10 +44,12 @@ Bundle 'rking/ag.vim'
 Bundle 'Shougo/neomru.vim'
 Bundle 'tmsanrinsha/yaml.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'pmsorhaindo/syntastic-local-eslint.vim'
 Bundle 'mxw/vim-jsx'
 Bundle 'tpope/vim-abolish'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bigbrozer/vim-nagios'
+Bundle 'nikvdp/ejs-syntax'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -80,6 +82,7 @@ let g:vim_markdown_folding_disabled=1
 set expandtab tabstop=2 shiftwidth=2 wildmode=longest,list
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c(0x%02B)%8P
 set laststatus=2
+set breakindent
 
 autocmd QuickFixCmdPost *grep* cwindow
 colorscheme default
@@ -126,7 +129,7 @@ let g:unite_enable_smart_case = 1
 let g:unite_enable_start_insert = 1
 
 nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file file/new<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]n :<C-u>Unite file/new<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
@@ -147,3 +150,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
