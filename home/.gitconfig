@@ -24,6 +24,7 @@
 [diff]
   algorithm = histogram
   compactionHeuristic = true
+  renames = true
 #  external = p4diff
 #driver for merging XCode project files
 [merge "mergepbx"]
