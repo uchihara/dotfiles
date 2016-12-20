@@ -50,6 +50,9 @@ Bundle 'tpope/vim-abolish'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bigbrozer/vim-nagios'
 Bundle 'nikvdp/ejs-syntax'
+if v:version >= 800
+  Bundle 'w0rp/ale'
+endif
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -147,11 +150,18 @@ endif
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
+if v:version >= 800
+  set statusline+=%{ALEGetStatusLine()}
+  let g:ale_sign_error = '⨉'
+  let g:ale_sign_warning = '⚠'
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+endif
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_slim_checkers=['slim-lint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_slim_checkers=['slim-lint']
+
