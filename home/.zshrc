@@ -191,3 +191,13 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 alias kube='kubectl'
 alias kube1='kubectl --kubeconfig=~/src/service_accounts/kubernetes-keys/tab-production/config --cluster=k8s-tab-production.open-runways.com --context=k8s-tab-production.open-runways.com'
 alias kubem='kubectl --cluster=minikube'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
+  source ~/google-cloud-sdk/path.zsh.inc
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
+  source ~/google-cloud-sdk/completion.zsh.inc
+fi
