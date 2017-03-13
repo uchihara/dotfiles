@@ -115,7 +115,7 @@ function ud() {
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
-LIBRARY_PATH=/usrlocal/lib:/usr/lib; export LIBRARY_PATH
+LIBRARY_PATH=/usr/local/lib:/usr/lib; export LIBRARY_PATH
 C_INCLUDE_PATH=/usr/local/include:/usr/include; export C_INCLUDE_PATH
 CPLUS_INCLUDE_PATH=/usr/local/include:/usr/include; export CPLUS_INCLUDE_PATH
 if [ -x /usr/bin/ccache ]; then
