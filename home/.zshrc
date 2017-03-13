@@ -182,6 +182,8 @@ PATH=$PATH:/usr/local/share/npm/bin
 PATH=$PATH:~/.rbenv/bin
 eval "$(rbenv init -)"
 
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 [ -f ~/.ssh-agent-linker ] && source ~/.ssh-agent-linker
 
 [ -x kubectl ] && source "$(kubectl completion zsh)"
