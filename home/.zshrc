@@ -113,6 +113,19 @@ function ud() {
   echo -n $1 UD
 }
 
+function between() {
+  first=$1
+  last=$2
+
+  if [ ! -z "$last" ]; then
+    re="(${first}.*)${last}"
+  else
+    re="(${first}.*)"
+
+  fi
+  perl -ne 'BEGIN { $/ = undef; } print $1 if(/'$re'/s)'
+}
+
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
 LIBRARY_PATH=/usr/local/lib:/usr/lib; export LIBRARY_PATH
