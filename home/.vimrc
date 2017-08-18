@@ -48,6 +48,8 @@ Bundle 'tpope/vim-abolish'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bigbrozer/vim-nagios'
 Bundle 'nikvdp/ejs-syntax'
+Bundle 'ryym/vim-riot'
+Bundle 'nicklasos/vim-jsx-riot'
 if v:version >= 800
   Bundle 'w0rp/ale'
 endif
