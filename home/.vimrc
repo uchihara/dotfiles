@@ -43,8 +43,6 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'Shougo/neomru.vim'
 Bundle 'tmsanrinsha/yaml.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'pmsorhaindo/syntastic-local-eslint.vim'
 Bundle 'mxw/vim-jsx'
 Bundle 'tpope/vim-abolish'
 Bundle 'pangloss/vim-javascript'
@@ -149,7 +147,6 @@ if executable('ag')
 endif
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 if v:version >= 800
   set statusline+=%{ALEGetStatusLine()}
   let g:ale_sign_error = '⨉'
@@ -157,11 +154,4 @@ if v:version >= 800
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 endif
 set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 1
-" let g:syntastic_javascript_checkers=['eslint']
-" let g:syntastic_slim_checkers=['slim-lint']
 
