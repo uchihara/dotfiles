@@ -181,8 +181,10 @@ export RUBY_GC_HEAP_INIT_SLOTS=100000
 
 PATH=$PATH:/usr/local/share/npm/bin
 
-PATH=$PATH:~/.rbenv/bin
-eval "$(rbenv init -)"
+if which rbenv >/dev/null; then
+  PATH=$PATH:~/.rbenv/bin
+  eval "$(rbenv init -)"
+fi
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
@@ -202,4 +204,8 @@ fi
 # The next line enables shell command completion for gcloud.
 if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
   source ~/google-cloud-sdk/completion.zsh.inc
+fi
+
+if [ -x /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
+  export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
