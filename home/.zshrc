@@ -128,6 +128,40 @@ function between() {
   perl -ne 'BEGIN { $/ = undef; } print $1 if(/'$re'/s)'
 }
 
+function ssh-ec2-host-for-prod() {
+  ssh-ec2-host-for production $1
+}
+
+function ssh-ec2-host-for-dev() {
+  ssh-ec2-host-for dev $1
+}
+
+function ssh-ec2-host-for() {
+  env=$1
+  host_spec=$2
+  login=$(echo $host_spec | awk -F@ '{print $1}')
+  host=$(echo $host_spec | awk -F@ '{print $2}')
+
+  if [[ -z $host ]]; then
+    host=$login
+  fi
+
+  if [[ -n $login ]]; then
+    login_spec=$login@
+  fi
+
+  ssh -i ~/.ssh/delish-$env.pem ${login_spec}$(ec2-host-for $host)
+}
+
+function ec2-host-for() {
+  name=$1
+
+  aws ec2 describe-instances | jq -r '
+    .Reservations[].Instances[] |
+    select((.Tags[] | select(.Key=="Name")).Value=="'$name'") |
+    .PublicIpAddress'
+}
+
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
 LIBRARY_PATH=/usr/local/lib:/usr/lib; export LIBRARY_PATH
