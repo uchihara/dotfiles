@@ -157,3 +157,7 @@ if v:version >= 800
 endif
 set statusline+=%*
 
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab
+augroup END
