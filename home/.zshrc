@@ -27,6 +27,8 @@ setopt share_history
 setopt magic_equal_subst
 setopt nonomatch
 setopt extended_glob
+setopt hist_reduce_blanks
+setopt hist_no_store
 
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' format '%B%d%b'
