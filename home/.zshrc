@@ -128,17 +128,8 @@ function between() {
   perl -ne 'BEGIN { $/ = undef; } print $1 if(/'$re'/s)'
 }
 
-function ssh-ec2-host-for-prod() {
-  ssh-ec2-host-for production $1
-}
-
-function ssh-ec2-host-for-dev() {
-  ssh-ec2-host-for dev $1
-}
-
 function ssh-ec2-host-for() {
-  env=$1
-  host_spec=$2
+  host_spec=$1
   login=$(echo $host_spec | awk -F@ '{print $1}')
   host=$(echo $host_spec | awk -F@ '{print $2}')
 
@@ -150,7 +141,7 @@ function ssh-ec2-host-for() {
     login_spec=$login@
   fi
 
-  ssh -i ~/.ssh/delish-$env.pem ${login_spec}$(ec2-host-for $host)
+  ssh ${login_spec}$(ec2-host-for $host)
 }
 
 function ec2-host-for() {

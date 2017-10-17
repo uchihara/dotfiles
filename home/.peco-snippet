@@ -7,6 +7,14 @@ alias pushd-gem='pushd $(bundle show --paths P)'
 alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
 alias git-rebase-loa 'git rebase -i git-loa'
 
+alias ecs-docker='ssh -t ec2-user@$(ecs-hosts) docker'
+alias ecs-hosts="aws ec2 describe-instances | jq -r '
+    .Reservations[].Instances[] |
+    select((.Tags | from_entries).Name | contains(\"EC2ContainerService\")) |
+    [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress] |
+    @tsv
+  ' | sed -e 's/,/ /g' | sort P | awk '{print \$2}'"
+
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
