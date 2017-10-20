@@ -198,7 +198,7 @@ PATH=~/bin:$PATH
 
 # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-which peco >/dev/null && [[ -s ~/.peco-snippet ]] && source ~/.peco-snippet
+which peco >/dev/null && [[ -s ~/.peco-snippet.sh ]] && source ~/.peco-snippet.sh
 
 export RUBY_GC_MALLOC_LIMIT=600000000
 export RUBY_GC_HEAP_FREE_SLOTS=40960
