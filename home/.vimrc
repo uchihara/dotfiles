@@ -78,6 +78,7 @@ filetype plugin indent on     " required!
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.jbuilder set ft=ruby
+au BufNewFile,BufRead fluent.conf set ft=fluentd
 au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 let g:vim_markdown_folding_disabled=1
 
