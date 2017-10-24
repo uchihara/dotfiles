@@ -7,6 +7,13 @@ alias pushd-gem='pushd $(bundle show --paths P)'
 alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
 alias git-rebase-loa 'git rebase -i git-loa'
 
+function edocker-logs () {
+  f=$1
+  host=$(ecs-hosts)
+  cid=$(ssh -t ec2-user@$host docker ps G $f | awk '{print $1}')
+  ssh -t ec2-user@$host docker logs $cid
+}
+
 alias edocker=ecs-docker
 alias ecs-docker='ssh -t ec2-user@$(ecs-hosts) docker'
 alias -g EH='ec2-user@$(ecs-hosts)'
