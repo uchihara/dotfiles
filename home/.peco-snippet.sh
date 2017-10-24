@@ -24,6 +24,13 @@ alias ecs-hosts="aws ec2 describe-instances | jq -r '
     @tsv
   ' | sed -e 's/,/ /g' | sort P | awk '{print \$2}'"
 
+function s3cat() {
+  p=$(echo $1/ | sed -e's/\/\/$/\//')
+  for f in $(aws s3 ls s3://$p | sort -r | peco | awk '{print $4}'); do
+    aws s3 cp s3://$p$f - | gzip -cd
+  done
+}
+
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
