@@ -149,6 +149,7 @@ function ec2-host-for() {
 
   aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
+    select(.Tags != null) |
     select((.Tags[] | select(.Key=="Name")).Value=="'$name'") |
     .PublicIpAddress'
 }
