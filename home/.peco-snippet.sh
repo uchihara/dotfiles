@@ -1,3 +1,4 @@
+alias peco='peco --on-cancel error'
 alias -g P='|peco'
 alias -g git-br='$(git branch P)'
 alias -g git-brr='$(git branch -r P)'
@@ -7,27 +8,53 @@ alias pushd-gem='pushd $(bundle show --paths P)'
 alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
 alias git-rebase-loa 'git rebase -i git-loa'
 
-function edocker-logs () {
-  f=$1
-  host=$(ecs-hosts)
-  cid=$(ssh -t ec2-user@$host docker ps G $f | awk '{print $1}')
-  ssh -t ec2-user@$host docker logs $cid
+function edocker-cmd () {
+  cmd=$1; shift
+  f=$1; shift
+  for host in $(ecs-hosts); do
+    cid=$(ssh -t ec2-user@$host docker ps G $f | awk '{print $1}')
+    ssh -t ec2-user@$host docker $cmd $cid "$@"
+  done
 }
 
+function edocker-cmd-hosts () {
+  args=`getopt h: $*`
+  set -- $args
+  echo "*: $*" | xxd
+  for opt in $*; do
+    echo "opt: $opt"
+    case "$opt" in
+      -h)
+        hosts="$hosts $2"; shift; shift;;
+      --)
+        shift; break;;
+    esac
+  done
+  cmd=$1; shift
+  f=$1; shift
+  for host in $hosts; do
+    cid=$(ssh -t ec2-user@$host docker ps G $f | awk '{print $1}')
+    ssh -t ec2-user@$host docker $cmd $cid "$@"
+  done
+}
+
+alias -g ECID="ssh -t ec2-user@$host docker ps G $f | awk '{print $1}'"
 alias edocker=ecs-docker
 alias ecs-docker='ssh -t ec2-user@$(ecs-hosts) docker'
 alias -g EH='ec2-user@$(ecs-hosts)'
 alias ecs-hosts="aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
+    select(.Tags != null) |
     select((.Tags | from_entries).Name | contains(\"EC2ContainerService\")) |
-    [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress] |
+    [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress, .InstanceId] |
     @tsv
   ' | sed -e 's/,/ /g' | sort P | awk '{print \$2}'"
 
 function s3cat() {
   p=$(echo $1/ | sed -e's/\/\/$/\//')
-  for f in $(aws s3 ls s3://$p | sort -r | peco | awk '{print $4}'); do
-    aws s3 cp s3://$p$f - | gzip -cd
+  uri=s3://$(echo $p | sed -e 's/^s3:\/\///')
+  for f in $(aws s3 ls $uri | sort -r | peco | awk '{print $4}'); do
+    aws s3 cp $uri$f - | gzip -cd
   done
 }
 
