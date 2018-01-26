@@ -1,0 +1,21 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: delish-payment
+project_root: ~
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-payment
+        - cd ~/go/src/github.com/everytv/delish-payment
+  - server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-payment
+        - cd ~/go/src/github.com/everytv/delish-payment
+  - db:
+      layout: even-vertical
+      panes:
+        - mysql -P 13306 -h 127.0.0.1 -uroot delish_payment_local
+        -

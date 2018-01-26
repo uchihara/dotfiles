@@ -1,0 +1,26 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: delish-server
+project_root: ~
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-server
+        - cd ~/go/src/github.com/everytv/delish-server
+  - server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-server
+        - cd ~/go/src/github.com/everytv/delish-server
+  - db:
+      layout: even-vertical
+      panes:
+        - mysql -h 127.0.0.1 -uevery -pDelishLocal delish_m1_local
+        - mysql -h 127.0.0.1 -uevery -pDelishLocal delish_t1_local
+  - ansible:
+      layout: even-vertical
+      panes:
+        - cd ~/src/delish-ansible
+        - cd ~/src/delish-ansible
