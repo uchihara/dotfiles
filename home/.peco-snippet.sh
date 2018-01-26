@@ -9,10 +9,10 @@ alias -g ps-pid='$(ps auxwwf P | awk "{print \$2}")'
 alias git-rebase-loa 'git rebase -i git-loa'
 
 function edocker-cmd () {
+  name=$1; shift
   cmd=$1; shift
-  f=$1; shift
   for host in $(ecs-hosts); do
-    cid=$(ssh -t ec2-user@$host docker ps G $f | awk '{print $1}')
+    cid=$(ssh -t ec2-user@$host docker ps G $name | awk '{print $1}')
     ssh -t ec2-user@$host docker $cmd $cid "$@"
   done
 }
