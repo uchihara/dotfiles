@@ -137,7 +137,7 @@ let g:unite_enable_start_insert = 1
 
 nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> [unite]f :<C-u>Unite file file/new<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]n :<C-u>Unite file/new<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
