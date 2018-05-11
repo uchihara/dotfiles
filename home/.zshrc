@@ -5,8 +5,8 @@ autoload -U compinit
 compinit
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' formats '(%b)'
+zstyle ':vcs_info:*' actionformats '(%b|%a)'
 [ -f /usr/local/share/zsh/site-functions/_aws ] && source /usr/local/share/zsh/site-functions/_aws
 bindkey -e
 precmd () {
@@ -14,10 +14,9 @@ precmd () {
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-RPROMPT="%1(v|%F{green}%1v%f|)"
+PROMPT="%1(v|%F{green}%1v%f|)$ "
 
-#PROMPT='%m:%~: '
-PROMPT=$'%{\e[1m\e[4m%}%m:%~%{\e[0m%} : '
+RPROMPT=$'[%{\e[1m\e[4m%}%~%{\e[0m%}]'
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
