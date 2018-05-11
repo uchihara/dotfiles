@@ -47,7 +47,7 @@ alias ecs-hosts="aws ec2 describe-instances | jq -r '
     select(.Tags != null) |
     select((.Tags | from_entries).Name != null) |
     select((.Tags | from_entries).Name | contains(\"EC2ContainerService\")) |
-    [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress, .InstanceId] |
+    [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress, .PrivateIpAddress, .InstanceId] |
     @tsv
   ' | sed -e 's/,/ /g' | sort P | awk '{print \$2}'"
 
