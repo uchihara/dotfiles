@@ -1,0 +1,21 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: delish-flyer
+project_root: ~
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-flyer-server
+        - cd ~/go/src/github.com/everytv/delish-flyer-server
+  - server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/src/github.com/everytv/delish-flyer-server
+        - cd ~/go/src/github.com/everytv/delish-flyer-server
+  - db:
+      layout: even-vertical
+      panes:
+        - mysql -P 33306 -h 127.0.0.1 -uroot delish_flyer_local
+        -
