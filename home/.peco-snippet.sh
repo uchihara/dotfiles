@@ -45,6 +45,7 @@ alias -g EH='ec2-user@$(ecs-hosts)'
 alias ecs-hosts="aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
     select(.Tags != null) |
+    select((.Tags | from_entries).Name != null) |
     select((.Tags | from_entries).Name | contains(\"EC2ContainerService\")) |
     [(.Tags | from_entries)[\"aws:cloudformation:stack-name\"], .PublicIpAddress, .InstanceId] |
     @tsv
