@@ -67,6 +67,7 @@ alias multitail='multitail -T -cT ansi -m 1000'
 alias be='bundle exec'
 alias -g PC='| pbcopy'
 alias mux=tmuxinator
+alias s3ls='aws s3 ls'
 
 if [ -f ~/.ssh-agent-info ]; then
 	source ~/.ssh-agent-info
