@@ -54,6 +54,7 @@ if v:version >= 800
   Bundle 'w0rp/ale'
 endif
 Bundle 'fatih/vim-go'
+Bundle 'ryym/vim-riot'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
