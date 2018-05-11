@@ -53,6 +53,7 @@ Bundle 'nicklasos/vim-jsx-riot'
 if v:version >= 800
   Bundle 'w0rp/ale'
 endif
+Bundle 'fatih/vim-go'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
