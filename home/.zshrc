@@ -244,3 +244,7 @@ fi
 if which keychain >/dev/null 2>&1; then
   eval "$(keychain --eval)"
 fi
+
+if [ -d /usr/lib/go-1.8 ]; then
+  export GOROOT=/usr/lib/go-1.8
+fi
