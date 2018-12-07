@@ -1,0 +1,5 @@
+#/bin/zsh
+
+if find ~/.ssh -name 'delish-*.pem' >/dev/null 2>&1; then
+  ssh-add ~/.ssh/delish-*.pem
+fi
