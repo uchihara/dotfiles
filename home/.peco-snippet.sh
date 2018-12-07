@@ -50,6 +50,7 @@ alias ec2-hosts="aws ec2 describe-instances | jq -r '
   ' | sed -e 's/,/ /g' | sort P | awk '{print \$1}'"
 alias ecs-hosts="aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
+    select(.State.Name != \"terminated\") |
     select(.Tags != null) |
     select((.Tags | from_entries).Name != null) |
     select((.Tags | from_entries).Name | contains(\"EC2ContainerService\")) |
