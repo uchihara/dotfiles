@@ -164,3 +164,6 @@ augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 augroup END
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
