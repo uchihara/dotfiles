@@ -255,3 +255,7 @@ fi
 if [ -d ~/Library/Android/sdk/platform-tools ]; then
   export PATH=$PATH:~/Library/Android/sdk/platform-tools
 fi
+
+if [ -x /usr/local/bin/goenv ]; then
+  eval "$(goenv init -)"
+fi
