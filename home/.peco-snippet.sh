@@ -42,6 +42,12 @@ alias -g ECID="ssh -t ec2-user@$host docker ps G $f | awk '{print $1}'"
 alias edocker=ecs-docker
 alias ecs-docker='ssh -t ec2-user@$(ecs-hosts) docker'
 alias -g EH='ec2-user@$(ecs-hosts)'
+alias ec2-hosts="aws ec2 describe-instances | jq -r '
+    .Reservations[].Instances[] |
+    select(.State.Name != \"terminated\") |
+    [.PublicIpAddress, .PrivateIpAddress, .InstanceId] |
+    @tsv
+  ' | sed -e 's/,/ /g' | sort P | awk '{print \$1}'"
 alias ecs-hosts="aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
     select(.Tags != null) |
@@ -51,11 +57,19 @@ alias ecs-hosts="aws ec2 describe-instances | jq -r '
     @tsv
   ' | sed -e 's/,/ /g' | sort P | awk '{print \$2}'"
 
-function s3cat() {
+function s3zcat() {
   p=$(echo $1/ | sed -e's/\/\/$/\//')
   uri=s3://$(echo $p | sed -e 's/^s3:\/\///')
   for f in $(aws s3 ls $uri | sort -r | peco | awk '{print $4}'); do
     aws s3 cp $uri$f - | gzip -cd
+  done
+}
+
+function s3cat() {
+  p=$(echo $1/ | sed -e's/\/\/$/\//')
+  uri=s3://$(echo $p | sed -e 's/^s3:\/\///')
+  for f in $(aws s3 ls $uri | sort -r | peco | awk '{print $4}'); do
+    aws s3 cp $uri$f -
   done
 }
 
