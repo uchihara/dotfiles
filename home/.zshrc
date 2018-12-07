@@ -251,3 +251,7 @@ fi
 if [ -d /usr/lib/go-1.8 ]; then
   export GOROOT=/usr/lib/go-1.8
 fi
+
+if [ -d ~/Library/Android/sdk/platform-tools ]; then
+  export PATH=$PATH:~/Library/Android/sdk/platform-tools
+fi
