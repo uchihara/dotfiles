@@ -245,7 +245,7 @@ if [ -f ~/.aws/credentials ]; then
 fi
 
 if which keychain >/dev/null 2>&1; then
-  eval "$(keychain --eval)"
+  eval "$(keychain -q --eval)"
 fi
 
 if [ -d /usr/lib/go-1.8 ]; then
