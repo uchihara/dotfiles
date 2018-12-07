@@ -1,0 +1,16 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: delish-web
+project_root: ~
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - cd ~/src/delish-web
+        - cd ~/src/delish-web
+  - server:
+      layout: even-vertical
+      panes:
+        - cd ~/src/delish-web
+        - cd ~/src/delish-web
