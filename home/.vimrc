@@ -54,6 +54,7 @@ if v:version >= 800
 endif
 Bundle 'fatih/vim-go'
 Bundle 'ryym/vim-riot'
+Bundle 'mhinz/vim-startify'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -166,3 +167,5 @@ augroup END
 
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
+
+let g:startify_change_to_dir = 0
