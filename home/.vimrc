@@ -55,6 +55,7 @@ endif
 Bundle 'fatih/vim-go'
 Bundle 'ryym/vim-riot'
 Bundle 'mhinz/vim-startify'
+Bundle 'posva/vim-vue'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
