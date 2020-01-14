@@ -257,3 +257,8 @@ if [ -d ~/.goenv ]; then
   export PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
 fi
+
+if [ -x /usr/local/bin/nodenv ]; then
+  eval "$(nodenv init -)"
+fi
+
