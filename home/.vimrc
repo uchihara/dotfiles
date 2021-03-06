@@ -175,3 +175,5 @@ autocmd FileType vue syntax sync fromstart
 let g:startify_change_to_dir = 0
 
 highlight link SclowSbar PmenuSel
+
+se belloff=all
