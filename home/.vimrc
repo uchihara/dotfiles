@@ -169,3 +169,8 @@ autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 
 let g:startify_change_to_dir = 0
+
+augroup XML
+  autocmd!
+  autocmd FileType xml setlocal foldmethod=indent " foldlevelstart=999 foldminlines=0
+augroup END
