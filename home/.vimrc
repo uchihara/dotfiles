@@ -50,10 +50,9 @@ Bundle 'nikvdp/ejs-syntax'
 Bundle 'ryym/vim-riot'
 Bundle 'nicklasos/vim-jsx-riot'
 if v:version >= 800
-  Bundle 'w0rp/ale'
+  Bundle 'dense-analysis/ale'
 endif
 Bundle 'fatih/vim-go'
-Bundle 'ryym/vim-riot'
 Bundle 'mhinz/vim-startify'
 
 "Bundle 'Lokaltog/vim-easymotion'
@@ -153,7 +152,7 @@ endif
 
 set statusline+=%#warningmsg#
 if v:version >= 800
-  set statusline+=%{ALEGetStatusLine()}
+  "set statusline+=%{ALEGetStatusLine()}
   let g:ale_sign_error = '⨉'
   let g:ale_sign_warning = '⚠'
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
