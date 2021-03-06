@@ -28,8 +28,8 @@
 #  external = p4diff
 #driver for merging XCode project files
 [merge "mergepbx"]
-  name = XCode project files merger
-  driver = mergepbx %O %A %B
+	name = Xcode project files merger
+	driver = mergepbx %O %A %B
 [credential]
 	helper = osxkeychain
 [pager]
@@ -41,3 +41,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+[url "git@github.com:"]
+  insteadOf = https://github.com/

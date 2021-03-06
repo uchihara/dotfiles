@@ -7,10 +7,10 @@ windows:
   - src:
       layout: even-vertical
       panes:
-        - cd ~/src/delish-web
-        - cd ~/src/delish-web
+        - cd ~/src/delish-web2
+        - cd ~/src/delish-web2
   - server:
       layout: even-vertical
       panes:
-        - cd ~/src/delish-web
-        - cd ~/src/delish-web
+        - cd ~/src/delish-web2
+        - cd ~/src/delish-web2

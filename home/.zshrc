@@ -252,6 +252,14 @@ if [ -d ~/Library/Android/sdk/platform-tools ]; then
   export PATH=$PATH:~/Library/Android/sdk/platform-tools
 fi
 
-if [ -x /usr/local/bin/goenv ]; then
+if [ -d ~/.goenv ]; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
 fi
+
+if [ -x /usr/local/bin/nodenv ]; then
+  eval "$(nodenv init -)"
+fi
+
+setopt no_beep

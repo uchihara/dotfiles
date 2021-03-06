@@ -54,6 +54,8 @@ if v:version >= 800
 endif
 Bundle 'fatih/vim-go'
 Bundle 'mhinz/vim-startify'
+Bundle 'posva/vim-vue'
+Bundle 'obcat/vim-sclow'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -88,7 +90,7 @@ set expandtab tabstop=2 shiftwidth=2 wildmode=longest,list
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c(0x%02B)%8P
 set laststatus=2
 if v:version >= 800
-  set breakindent
+  "set breakindent
 endif
 set mouse=
 
@@ -156,6 +158,8 @@ if v:version >= 800
   let g:ale_sign_error = '⨉'
   let g:ale_sign_warning = '⚠'
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_lint_on_insert_leave = 1
+  let g:ale_lint_on_text_changed = 'always'
 endif
 set statusline+=%*
 
@@ -166,6 +170,7 @@ augroup END
 
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
+autocmd FileType vue syntax sync fromstart
 
 let g:startify_change_to_dir = 0
 
@@ -173,3 +178,7 @@ augroup XML
   autocmd!
   autocmd FileType xml setlocal foldmethod=indent " foldlevelstart=999 foldminlines=0
 augroup END
+
+highlight link SclowSbar PmenuSel
+
+se belloff=all
