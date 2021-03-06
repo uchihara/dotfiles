@@ -182,3 +182,7 @@ augroup END
 highlight link SclowSbar PmenuSel
 
 se belloff=all
+
+"let g:go_debug = ['shell-commands']
+let g:go_def_mode = 'godef'
+
