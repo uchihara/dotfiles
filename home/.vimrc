@@ -170,6 +170,7 @@ augroup END
 
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
+autocmd FileType vue syntax sync fromstart
 
 let g:startify_change_to_dir = 0
 
