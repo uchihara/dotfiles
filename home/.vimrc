@@ -52,7 +52,15 @@ Bundle 'nicklasos/vim-jsx-riot'
 if v:version >= 800
   Bundle 'dense-analysis/ale'
 endif
-Bundle 'fatih/vim-go'
+"Bundle 'fatih/vim-go'
+Bundle 'prabirshrestha/async.vim'
+Bundle 'prabirshrestha/asyncomplete.vim'
+Bundle 'prabirshrestha/asyncomplete-lsp.vim'
+Bundle 'prabirshrestha/vim-lsp'
+Bundle 'mattn/vim-lsp-settings'
+Bundle 'mattn/vim-goimports'
+Bundle 'benmills/vimux'
+Bundle 'sebdah/vim-delve'
 Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
 Bundle 'obcat/vim-sclow'
@@ -168,8 +176,6 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 augroup END
 
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
 autocmd FileType vue syntax sync fromstart
 
 let g:startify_change_to_dir = 0
@@ -184,5 +190,21 @@ highlight link SclowSbar PmenuSel
 se belloff=all
 
 "let g:go_debug = ['shell-commands']
-let g:go_def_mode = 'godef'
+"let g:go_def_mode = 'godef'
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+autocmd FileType go nmap <silent> <C-]> :LspDefinition<CR>
+autocmd FileType go nmap <silent> <f2> :LspRename<CR>
+autocmd FileType go nmap <silent> <Leader>d :LspTypeDefinition<CR>
+autocmd FileType go nmap <silent> <Leader>r :LspReferences<CR>
+autocmd FileType go nmap <silent> <Leader>i :LspImplementation<CR>
+autocmd FileType go nmap <silent> ;b :DlvToggleBreakpoint<CR>
+autocmd FileType go nmap <silent> ;d :DlvDebug
+autocmd FileType go nmap <silent> ;t :DlvTest<CR>
+autocmd FileType go let g:lsp_diagnostics_enabled = 1
+autocmd FileType go let g:lsp_diagnostics_echo_cursor = 1
+autocmd FileType go let g:delve_use_vimux = 1
+let g:VimuxHeight = "40"
+
 
