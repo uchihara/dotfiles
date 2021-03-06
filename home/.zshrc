@@ -262,3 +262,4 @@ if [ -x /usr/local/bin/nodenv ]; then
   eval "$(nodenv init -)"
 fi
 
+setopt no_beep
