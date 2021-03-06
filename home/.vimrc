@@ -56,6 +56,7 @@ Bundle 'fatih/vim-go'
 Bundle 'ryym/vim-riot'
 Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
+Bundle 'obcat/vim-sclow'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -171,3 +172,5 @@ autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 
 let g:startify_change_to_dir = 0
+
+highlight link SclowSbar PmenuSel
