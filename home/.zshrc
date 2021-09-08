@@ -215,13 +215,15 @@ if which rbenv >/dev/null; then
   eval "$(rbenv init -)"
 fi
 
-source "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+fi
 
 [ -f ~/.ssh-agent-linker ] && source ~/.ssh-agent-linker
 
