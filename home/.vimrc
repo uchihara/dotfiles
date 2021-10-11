@@ -198,13 +198,14 @@ autocmd FileType go nmap <silent> <C-]> :LspDefinition<CR>
 autocmd FileType go nmap <silent> <f2> :LspRename<CR>
 autocmd FileType go nmap <silent> <Leader>d :LspTypeDefinition<CR>
 autocmd FileType go nmap <silent> <Leader>r :LspReferences<CR>
-autocmd FileType go nmap <silent> <Leader>i :LspImplementation<CR>
+autocmd FileType go nmap <silent> <C-i> :LspImplementation<CR>
 autocmd FileType go nmap <silent> ;b :DlvToggleBreakpoint<CR>
 autocmd FileType go nmap <silent> ;d :DlvDebug
 autocmd FileType go nmap <silent> ;t :DlvTest<CR>
 autocmd FileType go let g:lsp_diagnostics_enabled = 1
 autocmd FileType go let g:lsp_diagnostics_echo_cursor = 1
 autocmd FileType go let g:delve_use_vimux = 1
+
 let g:VimuxHeight = "40"
 
 
