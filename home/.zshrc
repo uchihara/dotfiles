@@ -262,11 +262,6 @@ if [ -x /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
   export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
 
-if [ -f ~/.aws/credentials ]; then
-  export AWS_ACCESS_KEY_ID=$(grep -A5 '[default]' ~/.aws/credentials | grep aws_access_key_id | awk -F= '{print $2}' | sed -e 's/  *//g' | head -1)
-  export AWS_SECRET_ACCESS_KEY=$(grep -A5 '[default]' ~/.aws/credentials | grep aws_secret_access_key | awk -F= '{print $2}' | sed -e 's/  *//g' | head -1)
-fi
-
 if [ -d /usr/lib/go-1.8 ]; then
   export GOROOT=/usr/lib/go-1.8
 fi
