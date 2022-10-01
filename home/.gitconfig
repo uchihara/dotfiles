@@ -1,11 +1,6 @@
 [user]
 	name = Akira Uchihara
 	email = akira.uchihara@every.tv
-[color]
-#	diff = auto
-	diff = always
-	status = auto
-	branch = auto
 [alias]
 	ci = commit
 	co = checkout
@@ -14,33 +9,5 @@
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [merge]
 	tool = vimdiff
-[core]
-# 	pager = less -R
-# 	pager = sh l.sh
-#[mergetool "vimdiff"]
-#	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
-#	trustExitCode = true
-  quotepath = false
 [diff]
-  algorithm = histogram
-  compactionHeuristic = true
-  renames = true
-#  external = p4diff
-#driver for merging XCode project files
-[merge "mergepbx"]
-	name = Xcode project files merger
-	driver = mergepbx %O %A %B
-[credential]
-	helper = osxkeychain
-[pager]
-  log = diff-highlight | less -q
-  show = diff-highlight | less -q
-  diff = diff-highlight | less -q
-  grep = less -q
-  branch = cat
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+	tool = vimdiff
