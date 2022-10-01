@@ -94,6 +94,7 @@ let g:vim_markdown_folding_disabled=1
 set expandtab tabstop=2 shiftwidth=2 wildmode=longest,list
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c(0x%02B)%8P
 set laststatus=2
+set list listchars=tab:»·,trail:·
 if v:version >= 800
   "set breakindent
 endif
