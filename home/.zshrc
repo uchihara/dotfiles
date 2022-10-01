@@ -1,5 +1,7 @@
 #/bin/zsh
 
+ulimit -n 1024
+
 # for zsh
 autoload -U compinit
 compinit
