@@ -18,6 +18,19 @@ precmd () {
 }
 PROMPT="%1(v|%F{green}%1v%f|)$ "
 
+if [ -z /usr/local/bin/kubectl ]; then
+  source <(kubectl completion zsh)
+fi
+
+if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
+  source /usr/local/opt/kube-ps1/share/kube-ps1.sh
+  PS1='$(kube_ps1)'$PS1
+  function gke_shorten() {
+      echo "$1" | sed -e 's/gke_//' -e 's/dev-01/dev/' -e 's/_asia-northeast1-a//'
+  }
+  KUBE_PS1_CLUSTER_FUNCTION=gke_shorten
+fi
+
 RPROMPT=$'[%{\e[1m\e[4m%}%~%{\e[0m%}]'
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
