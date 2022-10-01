@@ -27,7 +27,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'elzr/vim-json'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'desert256.vim'
 Bundle 'yoppi/fluentd.vim'
@@ -102,8 +101,6 @@ set mouse=
 
 autocmd QuickFixCmdPost *grep* cwindow
 colorscheme default
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
 set background=light
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=254
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=253
