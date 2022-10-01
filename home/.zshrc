@@ -82,7 +82,6 @@ alias multitail='multitail -T -cT ansi -m 1000'
 alias be='bundle exec'
 alias -g PC='| pbcopy'
 alias mux=tmuxinator
-alias s3ls='aws s3 ls'
 
 if [ -f ~/.ssh-agent-info ]; then
 	source ~/.ssh-agent-info
@@ -164,6 +163,9 @@ alias ec2host=ec2-host-for
 function ec2-host-for() {
   name=$1
 
+  if [ -z $AWS_PROFILE ]; then
+    export AWS_PROFILE=$ap
+  fi
   aws ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
     select(.State.Name == "running") |
@@ -171,6 +173,10 @@ function ec2-host-for() {
     select((.Tags[] | select(.Key=="Name")).Value=="'$name'") |
     .PublicIpAddress'
 }
+
+alias adk='export AWS_PROFILE=dk'
+alias atd='export AWS_PROFILE=tl-dev'
+alias atp='export AWS_PROFILE=tl-prd'
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
