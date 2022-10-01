@@ -50,7 +50,6 @@ Bundle 'nikvdp/ejs-syntax'
 Bundle 'ryym/vim-riot'
 Bundle 'nicklasos/vim-jsx-riot'
 if v:version >= 800
-  Bundle 'dense-analysis/ale'
 endif
 "Bundle 'fatih/vim-go'
 Bundle 'prabirshrestha/async.vim'
@@ -59,11 +58,9 @@ Bundle 'prabirshrestha/asyncomplete-lsp.vim'
 Bundle 'prabirshrestha/vim-lsp'
 Bundle 'mattn/vim-lsp-settings'
 Bundle 'mattn/vim-goimports'
-Bundle 'benmills/vimux'
 Bundle 'sebdah/vim-delve'
 Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
-Bundle 'obcat/vim-sclow'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
