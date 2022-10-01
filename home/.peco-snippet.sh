@@ -84,7 +84,7 @@ function peco-select-history() {
     BUFFER=$(history -n 1 | \
         eval $tac | \
         awk '!_[$0]++' | \
-        peco --initial-filter=SmartCase --query "$LBUFFER")
+        peco --initial-filter=SmartCase --query "$LBUFFER" | sed -e 's/\\n/\n/g')
     CURSOR=$#BUFFER
 }
 zle -N peco-select-history
