@@ -286,3 +286,7 @@ if [ -d /usr/local/opt/homeshick ]; then
   export HOMESHICK_DIR=/usr/local/opt/homeshick
   source "/usr/local/opt/homeshick/homeshick.sh"
 fi
+
+if [ -x /usr/local/bin/direnv ]; then
+  eval "$(direnv hook zsh)"
+fi
