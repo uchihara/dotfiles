@@ -190,6 +190,9 @@ let g:VimuxHeight = "40"
 
 command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/tmp/lsp.log')
+
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
