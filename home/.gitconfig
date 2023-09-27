@@ -11,3 +11,5 @@
 	tool = vimdiff
 [diff]
 	tool = vimdiff
+[diff "sopsdiffer"]
+	textconv = sops -d
