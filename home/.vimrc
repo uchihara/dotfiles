@@ -60,6 +60,7 @@ Bundle 'mattn/vim-goimports'
 Bundle 'sebdah/vim-delve'
 Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
+Bundle 'github/copilot.vim'
 Bundle 'vim-scripts/AnsiEsc.vim'
 
 "Bundle 'Lokaltog/vim-easymotion'
@@ -220,3 +221,10 @@ augroup lsp_install
 augroup END
 
 let g:vim_json_syntax_conceal = 0
+
+let g:copilot_filetypes = {
+  \ 'gitcommit': v:true,
+  \ 'markdown': v:true,
+  \ 'yaml': v:true
+  \ }
+
