@@ -302,3 +302,4 @@ if [ -x /usr/local/bin/direnv ]; then
 fi
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export CLOUDSDK_PYTHON=~/.pyenv/shims/python
