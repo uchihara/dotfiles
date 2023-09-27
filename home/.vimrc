@@ -60,6 +60,7 @@ Bundle 'mattn/vim-goimports'
 Bundle 'sebdah/vim-delve'
 Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
+Bundle 'vim-scripts/AnsiEsc.vim'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
