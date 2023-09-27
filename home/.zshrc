@@ -161,12 +161,16 @@ function ssh-ec2-host-for() {
 alias ec2host=ec2-host-for
 
 function ec2-host-for() {
+  if [ "$1" = "-p" ]; then
+    shift
+    if [ ! -z "$1" ]; then
+      ap=$1
+      shift
+    fi
+  fi
   name=$1
 
-  if [ -z $AWS_PROFILE ]; then
-    export AWS_PROFILE=$ap
-  fi
-  aws ec2 describe-instances | jq -r '
+  aws --profile $ap ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
     select(.State.Name == "running") |
     select(.Tags != null) |
