@@ -300,3 +300,5 @@ fi
 if [ -x /usr/local/bin/direnv ]; then
   eval "$(direnv hook zsh)"
 fi
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
