@@ -62,7 +62,6 @@ Bundle 'mhinz/vim-startify'
 Bundle 'posva/vim-vue'
 Bundle 'github/copilot.vim'
 Bundle 'vim-scripts/AnsiEsc.vim'
-Bundle 'neoclide/coc.nvim'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -228,7 +227,3 @@ let g:copilot_filetypes = {
   \ 'markdown': v:true,
   \ 'yaml': v:true
   \ }
-
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
