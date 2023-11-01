@@ -267,11 +267,6 @@ if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
   source ~/google-cloud-sdk/path.zsh.inc
 fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
-  source ~/google-cloud-sdk/completion.zsh.inc
-fi
-
 if [ -x /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ]; then
   export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
@@ -307,3 +302,4 @@ fi
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export CLOUDSDK_PYTHON=~/.pyenv/shims/python
+
