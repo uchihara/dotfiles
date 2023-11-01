@@ -182,7 +182,7 @@ alias adk='export AWS_PROFILE=dk'
 alias atd='export AWS_PROFILE=tl-dev'
 alias atp='export AWS_PROFILE=tl-prd'
 
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin; export PATH
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/homebrew/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
 LIBRARY_PATH=/usr/local/lib:/usr/lib; export LIBRARY_PATH
 C_INCLUDE_PATH=/usr/local/include:/usr/include; export C_INCLUDE_PATH
@@ -225,6 +225,10 @@ fi
 #
 PATH=~/bin:$PATH
 
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 which peco >/dev/null && [[ -s ~/.peco-snippet.sh ]] && source ~/.peco-snippet.sh
@@ -235,9 +239,9 @@ export RUBY_GC_HEAP_INIT_SLOTS=100000
 
 PATH=$PATH:/usr/local/share/npm/bin
 
-if which rbenv >/dev/null; then
+if [ -x /opt/homebrew/bin/rbenv ]; then
   PATH=$PATH:~/.rbenv/bin
-  eval "$(rbenv init -)"
+  eval "$(/opt/homebrew/bin/rbenv init -)"
 fi
 
 if [ -f "$HOME/.cargo/env" ]; then
@@ -286,18 +290,18 @@ if [ -d ~/.goenv ]; then
   eval "$(goenv init -)"
 fi
 
-if [ -x /usr/local/bin/nodenv ]; then
+if [ -x /opt/homebrew/bin/nodenv ]; then
   eval "$(nodenv init -)"
 fi
 
 setopt no_beep
 
-if [ -d /usr/local/opt/homeshick ]; then
-  export HOMESHICK_DIR=/usr/local/opt/homeshick
-  source "/usr/local/opt/homeshick/homeshick.sh"
+if [ -d /opt/homebrew/homeshick ]; then
+  export HOMESHICK_DIR=/opt/homebrew/homeshick
+  source /opt/homebrew/homeshick/homeshick.sh
 fi
 
-if [ -x /usr/local/bin/direnv ]; then
+if [ -x /opt/homebrew/bin/direnv ]; then
   eval "$(direnv hook zsh)"
 fi
 
