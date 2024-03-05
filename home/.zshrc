@@ -4,8 +4,6 @@ ulimit -n 1024
 
 # for zsh
 autoload -U compinit
-compinit
-
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%b)'
 zstyle ':vcs_info:*' actionformats '(%b|%a)'
