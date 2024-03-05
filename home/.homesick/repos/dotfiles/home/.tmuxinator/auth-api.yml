@@ -1,0 +1,21 @@
+# ~/.tmuxinator/sc2-api-server.yml
+# you can make as many tabs as you wish...
+
+project_name: auth-api
+project_root: ~
+windows:
+  - src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.1/src/github.com/everytv/auth-api
+        - cd ~/go/1.18.1/src/github.com/everytv/auth-api
+  - server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.1/src/github.com/everytv/auth-api
+        - cd ~/go/1.18.1/src/github.com/everytv/auth-api
+  - db:
+      layout: even-vertical
+      panes:
+        -
+        -
