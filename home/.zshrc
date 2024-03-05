@@ -20,9 +20,10 @@ if [ -z /usr/local/bin/kubectl ]; then
   source <(kubectl completion zsh)
 fi
 
-if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
-  source /usr/local/opt/kube-ps1/share/kube-ps1.sh
-  PS1='$(kube_ps1)'$PS1
+if [ -f /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh ]; then
+  source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
+  #PS1='$(kube_ps1)'$PS1
+  #RPROMPT='$(kube_ps1)'
   function gke_shorten() {
       echo "$1" | sed -e 's/gke_//' -e 's/dev-01/dev/' -e 's/_asia-northeast1-a//'
   }
