@@ -13,3 +13,5 @@
 	tool = vimdiff
 [diff "sopsdiffer"]
 	textconv = sops -d
+[pager]
+	branch = false
