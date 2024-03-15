@@ -177,7 +177,8 @@ function ec2-host-for() {
     .PublicIpAddress'
 }
 
-alias adk='export AWS_PROFILE=dk-prd'
+alias adp='export AWS_PROFILE=dk-prd'
+alias add='export AWS_PROFILE=dk-dev'
 alias atd='export AWS_PROFILE=tl-dev'
 alias atp='export AWS_PROFILE=tl-prd'
 
