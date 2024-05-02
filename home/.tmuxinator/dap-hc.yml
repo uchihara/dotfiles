@@ -1,0 +1,61 @@
+# ~/.tmuxinator/dap-hc.yml
+# you can make as many tabs as you wish...
+
+project_name: dap-hc
+project_root: "~"
+windows:
+  - auth-api-src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/auth-api
+        - cd ~/go/1.21.1/src/github.com/everytv/auth-api
+  - auth-api-server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/auth-api
+        - cd ~/go/1.21.1/src/github.com/everytv/auth-api
+  - payment-api-src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/payment-api
+        - cd ~/go/1.21.1/src/github.com/everytv/payment-api
+  - payment-api-server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/payment-api
+        - cd ~/go/1.21.1/src/github.com/everytv/payment-api
+  - healthcare-server-src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/healthcare-server
+        - cd ~/go/1.21.1/src/github.com/everytv/healthcare-server
+  - healthcare-server-server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.21.1/src/github.com/everytv/healthcare-server
+        - cd ~/go/1.21.1/src/github.com/everytv/healthcare-server
+  - delish-server-src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.1/src/github.com/everytv/delish-server
+        - cd ~/go/1.18.1/src/github.com/everytv/delish-server
+  - delish-server-server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.1/src/github.com/everytv/delish-server
+        - cd ~/go/1.18.1/src/github.com/everytv/delish-server
+  - delish-payment-src:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.2/src/github.com/everytv/delish-payment
+        - cd ~/go/1.18.2/src/github.com/everytv/delish-payment
+  - delish-payment-server:
+      layout: even-vertical
+      panes:
+        - cd ~/go/1.18.2/src/github.com/everytv/delish-payment
+        - cd ~/go/1.18.2/src/github.com/everytv/delish-payment
+  - delish-terraform:
+      layout: even-vertical
+      panes:
+        - cd ~/src/delish-terraform
+        - cd ~/src/delish-terraform
