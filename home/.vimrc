@@ -188,6 +188,8 @@ autocmd FileType go let g:delve_use_vimux = 1
 let g:lsp_document_highlight_enabled = 1
 let g:lsp_document_code_action_signs_enabled = 0
 
+autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
+
 let g:VimuxHeight = "40"
 
 command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
