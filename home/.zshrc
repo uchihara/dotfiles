@@ -157,9 +157,7 @@ function ssh-ec2-host-for() {
   ssh ${login_spec}$(ec2-host-for $host)
 }
 
-alias ec2host=ec2-host-for
-
-function ec2-host-for() {
+function ec2host() {
   if [ "$1" = "-p" ]; then
     shift
     if [ ! -z "$1" ]; then
