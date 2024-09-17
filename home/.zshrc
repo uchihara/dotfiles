@@ -158,6 +158,14 @@ function ssh-ec2-host-for() {
 }
 
 function ec2host() {
+  ec2host_internal $1 $2 $3 "PublicIpAddress"
+}
+
+function ec2id() {
+  ec2host_internal $1 $2 $3 "InstanceId"
+}
+
+function ec2host_internal() {
   if [ "$1" = "-p" ]; then
     shift
     if [ ! -z "$1" ]; then
@@ -166,13 +174,14 @@ function ec2host() {
     fi
   fi
   name=$1
+  field=$2
 
   aws --profile $ap ec2 describe-instances | jq -r '
     .Reservations[].Instances[] |
     select(.State.Name == "running") |
     select(.Tags != null) |
     select((.Tags[] | select(.Key=="Name")).Value=="'$name'") |
-    .PublicIpAddress'
+    .'$field
 }
 
 alias adp='export AWS_PROFILE=dk-prd'
