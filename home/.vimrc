@@ -203,6 +203,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <silent> <C-]> :LspDefinition<CR>
   nmap <silent> <Leader>d :LspTypeDefinition<CR>
   nmap <silent> <C-i> :LspImplementation<CR>
+  nmap <silent> <C-e> :LspStopServer<CR>:sleep 100m<CR>:e<CR>
   nmap <buffer> gd <plug>(lsp-document-diagnostics)
   nmap <buffer> gs <plug>(lsp-document-symbol-search)
   nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
