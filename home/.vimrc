@@ -225,6 +225,7 @@ augroup END
 let g:vim_json_syntax_conceal = 0
 
 let g:copilot_filetypes = {
+  \ 'c': v:true,
   \ 'gitcommit': v:true,
   \ 'markdown': v:true,
   \ 'yaml': v:true
