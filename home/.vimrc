@@ -229,3 +229,5 @@ let g:copilot_filetypes = {
   \ 'markdown': v:true,
   \ 'yaml': v:true
   \ }
+
+let g:terraform_fmt_on_save=1
