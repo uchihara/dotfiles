@@ -188,6 +188,7 @@ alias adp='export AWS_PROFILE=dk-prd'
 alias add='export AWS_PROFILE=dk-dev'
 alias atd='export AWS_PROFILE=tl-dev'
 alias atp='export AWS_PROFILE=tl-prd'
+alias ack='export AWS_PROFILE=ck'
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/homebrew/bin; export PATH
 MANPATH=/usr/local/share/man:/usr/share/man; export MANPATH
